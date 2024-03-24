@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    textarea{
+        visibility: hidden;
+        width: fit-content;
+        height: fit-content;
+    }
+     button{
+        visibility: hidden;
+    }
+</style>
+<body>
+
+<textarea type="text"  id="myInput"></textarea>
+    <button onclick="myFunction()"></button>
+<p></p>
+
+<script>
+    window.addEventListener('load', ()=>{
+        document.querySelector("button").click()
+    })
+    
+document.addEventListener('click', function(event) {
+   myFunction()
+});
+    
+document.getElementById("myInput").value = `
+1 : Arithmetic Operations
+using System;
+public class Arthematic
+{
+public static void Main(string [] args)
+{
+System.Console.WriteLine("Enter a First Number: ");
+int num1 = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Enter a Second Number: ");
+int num2 = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("{0} + {1} = {2}", num1, num2, num1 + num2);
+System.Console.WriteLine("{0} - {1} = {2}", num1, num2, num1 - num2);
+System.Console.WriteLine("{0} x {1} = {2}", num1, num2, num1 * num2);
+System.Console.WriteLine("{0} / {1} = {2}", num1, num2, num1 / num2);
+System.Console.WriteLine("{0} mod {1} = {2}", num1, num2, num1 % num2);
+}
+}
+Output:
+Enter a First Number:
+123
+Enter a Second Number:
+32
+123 + 32 = 155
+123 - 32 = 91
+123 x 32 = 3936
+123 / 32 = 3
+123 mod 32 = 27
+2: Armstrong Numbers:
+using System;
+public class Armstrong
+{
+public static void Main(string[] args)
+{
+int a, b, c, d;
+for (int i = 1; i <= 1000; i++)
+{
+a = i / 100;
+b = (i - a * 100) / 10;
+c = (i - a * 100 - b * 10);
+d = a * a * a + b * b * b + c * c * c;
+if (i == d)
+{
+System.Console.WriteLine("{0}", i);
+}
+}
+}
+}
+Output:
+1
+153
+370
+371
+407
+1000
+3: Substring of Strings
+using System;
+public class Substrings
+{
+public static void find_substrings(string input_string)
+{
+int j = 0;
+int i = 0;
+for (i = 1; i <= input_string.Length; i++)
+{
+for (j = 0; j <= input_string.Length - i; j++)
+{
+System.Console.WriteLine(input_string.Substring(j, i));
+}
+}
+}
+public static void Main(string [] args)
+{
+string input_string;
+System.Console.WriteLine("Enter a String :");
+input_string = System.Console.ReadLine();
+find_substrings(input_string);
+}
+}
+Output:
+Enter a String :
+Anjali
+A
+n
+j
+a
+l
+i
+An
+nj
+ja
+al
+li
+Anj
+nja
+jal
+ali
+Anja
+njal
+jali
+Anjal
+njali
+Anjali
+4: Divide by Zero Exception
+using System;
+public class Divide
+{
+public static void Main(string[] args)
+{
+try
+{
+int result = 15 / int.Parse("0");
+System.Console.WriteLine(result);
+}
+catch (DivideByZeroException e)
+{
+System.Console.WriteLine(e.Message);
+System.Console.ReadLine();
+}
+}
+}
+Output
+****************OUTPUT1****************
+Attempted to divide by zero.
+****************OUTPUT2****************
+15
+5: Pascal of a n triangle(print number)
+using System;public class Pascal
+{
+public static void Main(string[] args)
+{
+Console.Write("Enter the number of rows for Pascal's Triangle: ");
+if (int.TryParse(Console.ReadLine(), out int numRows) && numRows > 0)
+{
+int[,] arr = new int[numRows, numRows];Console.WriteLine("Pascal Triangle : ");for (int i = 0; i < 
+numRows; i++)
+{
+for (int j = 0; j <= i; j++)
+{
+if (j == 0 || j == i)
+{
+arr[i, j] = 1;
+}
+else
+{
+arr[i, j] = arr[i - 1, j] + arr[i - 1, j - 1];
+}Console.Write(arr[i, j] + " ");
+}Console.WriteLine();
+}
+}
+else
+{
+Console.WriteLine("Please enter a valid positive integer for the number of rows.");
+}Console.ReadLine();
+}
+}
+Pascal of a triangle(print pattern)
+using System;class Program
+{
+static void Main()
+{
+Console.Write("Enter the number of rows for Pascal's Triangle: ");int numRows = 
+int.Parse(Console.ReadLine());Console.Write("Pascal's 
+Triangle:\n");PrintPascalsTriangle(numRows);}static void PrintPascalsTriangle(int numRows)
+{
+for (int i = 0; i < numRows; i++)
+{
+for (int j = 0; j < numRows - i - 1; j++)
+{
+Console.Write(" ");
+}for (int j = 0; j <= i; j++)
+{
+Console.Write("* ");
+}Console.WriteLine();
+}
+}
+}
+Output
+Enter the number of rows for Pascal's Triangle: 5
+Pascal Triangle :
+1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+Enter the number of rows for Pascal's Triangle: 5
+Pascal's Triangle:
+*
+* *
+* * *
+* * * *
+* * * * *
+6: Flyod’s Trangle
+using System;namespace FloydTriangle
+{
+class Program
+{
+static void Main(string[] args)
+{
+int row, i, j, num = 1;Console.Write("Enter the number of rows: ");
+row = Convert.ToInt32(Console.ReadLine());Console.WriteLine("");for (i = 1; i <= row; i++)
+{
+for (j = 1; j <= i; j++)
+{
+Console.Write(num + " ");
+num++;
+}
+Console.WriteLine("");
+}Console.ReadKey();
+}
+}
+}
+Output:
+Enter the number of rows: 51
+2 3
+4 5 6
+7 8 9 10
+11 12 13 14 15
+7: Read and Copy a Text File
+using System;
+using System.IO;
+public class Program
+{
+public static void Main(string[] args)
+{
+string file = @"C:\Users\braun\OneDrive\Desktop\braham.txt";
+System.Console.WriteLine("Reading File using File.ReadAllText()");
+if (File.Exists(file))
+{
+string str = File.ReadAllText(file);
+System.Console.WriteLine(str);
+}
+System.Console.WriteLine();
+System.Console.WriteLine("Reading File using File.ReadAllLines()");
+if (File.Exists(file))
+{
+string[] lines = File.ReadAllLines(file);
+foreach (string ln in lines)
+System.Console.WriteLine(ln);
+}
+System.Console.WriteLine();
+Console.WriteLine("Reading File using StreamReader");
+if (File.Exists(file))
+{
+StreamReader Textfile = new StreamReader(file);
+string line;
+while ((line = Textfile.ReadLine()) != null)
+{
+System.Console.WriteLine(line);
+}
+Textfile.Close();
+System.Console.ReadKey();
+}
+System.Console.WriteLine();
+}
+}
+Output:
+Reading File using File.ReadAllText()
+Welcome to vtucodeReading File using File.ReadAllLines()
+Welcome to vtucodeReading File using StreamReader
+Welcome to vtucodeFile copy complete.
+8: Implementation of Stack Operations
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApplication
+{
+public class Stack
+{
+public static void Main(string [] args)
+{
+stack st = new stack();
+while (true)
+{
+System.Console.Clear();
+System.Console.WriteLine("\nStack MENU(size -- 10)");
+System.Console.WriteLine("1. Add an element");
+System.Console.WriteLine("2. See the Top element.");
+System.Console.WriteLine("3. Remove top element.");
+System.Console.WriteLine("4. Display stack elements.");
+System.Console.WriteLine("5. Exit");
+System.Console.Write("Select your choice: ");
+int choice = Convert.ToInt32(System.Console.ReadLine());
+switch (choice)
+{
+case 1:
+System.Console.WriteLine("Enter an Element : ");
+st.Push(Console.ReadLine());
+break;
+case 2:
+System.Console.WriteLine("Top element is: {0}", st.Peek());
+break;
+case 3:
+System.Console.WriteLine("Element removed: {0}", st.Pop());
+break;
+case 4:
+st.Display();
+break;
+case 5:
+System.Environment.Exit(1);
+break;
+}
+System.Console.ReadKey();
+}
+}
+}
+public interface StackADT
+{
+public Boolean isEmpty();
+public void Push(Object element);
+public Object Pop();
+public Object Peek();
+public void Display();
+}
+public class stack : StackADT
+{
+private int StackSize;
+public int StackSizeSet
+{
+get { return StackSize; }
+set { StackSize = value; }
+}
+public int top;
+public Object[] item;
+public stack()
+{
+StackSizeSet = 10;
+item = new Object[StackSizeSet];
+top = -1;
+}
+public stack(int capacity)
+{
+StackSizeSet = capacity;
+item = new Object[StackSizeSet];
+top = -1;
+}
+public bool isEmpty()
+{
+if (top == -1) return true;
+return false;
+}
+public void Push(object element)
+{
+if (top == (StackSize - 1))
+{
+System.Console.WriteLine("Stack is full!");
+}
+else
+{
+item[++top] = element;
+System.Console.WriteLine("Item pushed successfully!");
+}
+}
+public object Pop()
+{
+if (isEmpty())
+{
+System.Console.WriteLine("Stack is empty!");
+return "No elements";
+}
+else
+{
+return item[top--];
+}
+}
+public object Peek()
+{
+if (isEmpty())
+{
+System.Console.WriteLine("Stack is empty!");
+return "No elements";
+}
+else
+{
+return item[top];
+}
+}
+public void Display()
+{
+for (int i = top; i > -1; i--)
+{
+System.Console.WriteLine("Item {0}: {1}", (i + 1), item[i]);
+}
+}
+}
+}
+Output:
+Stack MENU(size -- 10)
+1. Add an element
+2. See the Top element.
+3. Remove top element.
+4. Display stack elements.
+5. Exit
+Select your choice: 1
+Enter an Element :
+2 4 5 3
+Item pushed successfully!***********************************************Stack MENU(size 
+-- 10)
+1. Add an element
+2. See the Top element.
+3. Remove top element.
+4. Display stack elements.
+5. Exit
+Select your choice: 2
+Top element is: 2 4 5 3***********************************************Stack MENU(size --
+10)
+1. Add an element
+2. See the Top element.
+3. Remove top element.
+4. Display stack elements.
+5. Exit
+Select your choice: 4
+Item 1: 2 4 5 3***********************************************Stack MENU(size -- 10)
+1. Add an element
+2. See the Top element.
+3. Remove top element.
+4. Display stack elements.
+5. Exit
+Select your choice: 3
+Element removed: 2 4 5 3***********************************************Stack MENU(size 
+-- 10)
+1. Add an element
+2. See the Top element.
+3. Remove top element.
+4. Display stack elements.
+5. Exit
+Select your choice: 2
+Stack is empty!
+Top element is: No elements***********************************************Stack 
+MENU(size -- 10)
+1. Add an element
+2. See the Top element.
+3. Remove top element.
+4. Display stack elements.
+5. Exit
+Select your choice: 5
+9: Complex Numbers
+using System;
+public struct Complex
+{
+public int real;
+public int imaginary;
+public Complex(int real, int imaginary)
+{
+this.real = real;
+this.imaginary = imaginary;
+}
+public static Complex operator +(Complex one, Complex two)
+{
+return new Complex(one.real + two.real, one.imaginary + two.imaginary);
+}
+public override string ToString()
+{
+return (String.Format("{0} + {1}i", real, imaginary));
+}
+}
+public class VtuCode
+{
+public static void Main(string [] args)
+{
+Complex val1 = new Complex(7, 1);
+Complex val2 = new Complex(2, 6);
+Complex res = val1 + val2;
+System.Console.WriteLine("First: {0}", val1);
+System.Console.WriteLine("Second: {0}", val2);
+System.Console.WriteLine("Result (Sum): {0}", res);
+System.Console.ReadLine();
+}
+}
+Output:
+First: 7 + 1i
+Second: 2 + 6i
+Result (Sum): 9 + 7i
+10: Abstract Class for Calculating Perimeter
+using System;public abstract class Shape
+{
+public abstract double GetPerimeter();
+public abstract double GetArea();
+}public class Circle : Shape
+{
+private double radius;
+private readonly double pi = Math.PI;public Circle()
+{
+this.radius = 1;
+}public Circle(double radius)
+{
+this.radius = radius;
+}public override double GetArea()
+{
+return pi * Math.Pow(radius, 2);
+}public override double GetPerimeter()
+{
+return 2 * pi * radius;
+}
+}public class Triangle : Shape
+{
+private double width, height;public Triangle()
+{
+this.width = 1;
+this.height = 1;
+}public Triangle(double width, double height)
+{
+this.width = width;
+this.height = height;
+}public override double GetArea()
+{
+return width * height;
+}public override double GetPerimeter()
+{
+return width + height + Math.Sqrt(Math.Pow(width, 2) + Math.Pow(height, 2));
+}
+}public class ShapeClient
+{
+public static void Main(string[] args)
+{
+double width = 13, length = 9;
+Shape triangle = new Triangle(width, length);
+Console.WriteLine("The width of the triangle is: " + width
++ "\nThe height of the triangle is: " + length
++ "\nThe area of the triangle is: " + triangle.GetArea()
++ "\nThe perimeter of the triangle is: " + triangle.GetPerimeter() + ".");double radius = 3;
+Shape circle = new Circle(radius);
+Console.WriteLine("\nThe radius of the circle is: " + radius
++ "\nThe area of the circle is: " + circle.GetArea()
++ "\nThe perimeter of the circle is: " + circle.GetPerimeter() + ".");
+}
+}
+Output:
+The width of the triangle is: 13
+The height of the triangle is: 9
+The area of the triangle is: 117
+The perimeter of the triangle is: 37.8113883008419.The radius of the circle is: 3
+The area of the circle is: 28.274333882308138
+The perimeter of the circle is: 18.84955592153876.
+11: Interface for Resizable
+using System;public interface IResizable
+{
+void ResizeWidth(int width);
+void ResizeHeight(int height);
+}public class Rectangle : IResizable
+{
+private int width;
+private int height;public Rectangle(int width, int height)
+{
+this.width = width;
+this.height = height;
+}public void ResizeWidth(int width)
+{
+this.width = width;
+}public void ResizeHeight(int height)
+{
+this.height = height;
+}public void PrintSize()
+{
+Console.WriteLine("Width: " + width + ", Height: " + height);
+}
+}public class Program
+{
+public static void Main(string[] args)
+{
+Rectangle rectangle = new Rectangle(100, 150);
+rectangle.PrintSize();
+rectangle.ResizeWidth(150);
+rectangle.ResizeHeight(200);
+rectangle.PrintSize();
+}
+}
+Output:
+Width: 100, Height: 150
+Width: 150, Height: 200`
+
+function myFunction() {
+  
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+console.log(copyText.value)
+}
+</script>
+
+</body>
+</html>
